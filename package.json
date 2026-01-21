@@ -3,19 +3,57 @@
   "displayName": "Favorite Font Picker",
   "description": "Pick and set favorite font from settings",
   "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/realth000/vscode-fav-font-picker"
+  },
   "engines": {
     "vscode": "^1.108.1"
   },
+  "publisher": "realth000",
   "categories": [
     "Other"
+  ],
+  "keywords": [
+    "font"
   ],
   "activationEvents": [],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "fav-font-picker.helloWorld",
-        "title": "Hello World"
+        "command": "fav-font-picker.pickFont",
+        "title": "Pick favorite font",
+        "shortTitle": "I am short title",
+        "category": "Favorite Font Picker"
+      },
+      {
+        "command": "fav-font-picker.pickFallbackFont",
+        "title": "Pick favorite fallback font",
+        "category": "Favorite Font Picker"
+      }
+    ],
+    "configuration": [
+      {
+        "title": "Favorite fonts",
+        "properties": {
+          "favFontPicker.favFonts": {
+            "type": "array",
+            "default": [],
+            "description": "Record favorite fonts to pick",
+            "items": {
+              "type": "string"
+            }
+          },
+          "favFontPicker.favFallbackFonts": {
+            "type": "array",
+            "default": [],
+            "description": "Record favorite fonts for fallback",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
       }
     ]
   },
